@@ -19,6 +19,7 @@ namespace CRC
         public byte len = 0;
         UInt16 crc = 0xFFFF;
         bool ThreadIsAlive = false;
+        bool StepbyStep = true;
         private Thread CrcThread;
 
         public MainForm()
@@ -244,6 +245,7 @@ namespace CRC
                 // байты закончились
                 if (pos == (len-1))
                 {
+                    StepbyStep = true;
                     UpdComment("Вычисление CRC завершено След. шаг обнулит регистры");
                     Sleep();
                     Reset();
@@ -283,31 +285,36 @@ namespace CRC
             msgScintilla.CaretLineVisibleAlways = false;
 
             NextStepButton.Enabled = false;
+            StepbyStep = true;
         }
 
         void Sleep() { 
-            try
+            if (StepbyStep)
             {
-                Thread.Sleep(Timeout.Infinite);
-            }
-            catch (ThreadInterruptedException)
-            {
-                Console.WriteLine("Thread '{0}' awoken.",
+                try
+                {
+                    Thread.Sleep(Timeout.Infinite);
+                }
+                catch (ThreadInterruptedException)
+                {
+                    Console.WriteLine("Thread '{0}' awoken.",
+                                      Thread.CurrentThread.Name);
+                }
+                catch (ThreadAbortException)
+                {
+                    Console.WriteLine("Thread '{0}' aborted.",
+                                      Thread.CurrentThread.Name);
+                }
+                finally
+                {
+                    Console.WriteLine("Thread '{0}' executing finally block.",
+                                      Thread.CurrentThread.Name);
+                }
+                Console.WriteLine("Thread '{0} finishing normal execution.",
                                   Thread.CurrentThread.Name);
+                Console.WriteLine();
             }
-            catch (ThreadAbortException)
-            {
-                Console.WriteLine("Thread '{0}' aborted.",
-                                  Thread.CurrentThread.Name);
-            }
-            finally
-            {
-                Console.WriteLine("Thread '{0}' executing finally block.",
-                                  Thread.CurrentThread.Name);
-            }
-            Console.WriteLine("Thread '{0} finishing normal execution.",
-                              Thread.CurrentThread.Name);
-            Console.WriteLine();
+            
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -391,6 +398,7 @@ namespace CRC
 
         private void NextStepButton_Click(object sender, EventArgs e)
         {
+            StepbyStep = true;
             CrcThread.Interrupt();
         }
 
@@ -413,5 +421,14 @@ namespace CRC
             CrcPanel.Visible = !CrcPanel.Visible;
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (ThreadIsAlive)
+            {
+                if (CrcThread.IsAlive)
+                    StepbyStep = false;
+            }
+            CrcThread.Interrupt();
+        }
     }
 }

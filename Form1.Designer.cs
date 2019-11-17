@@ -30,6 +30,7 @@
         {
             this.TopPanel = new System.Windows.Forms.Panel();
             this.TopCrcPanel = new System.Windows.Forms.Panel();
+            this.RefOutLabel = new System.Windows.Forms.Label();
             this.BitsNumUD = new System.Windows.Forms.NumericUpDown();
             this.RefInLabel = new System.Windows.Forms.Label();
             this.BitsLabel = new System.Windows.Forms.Label();
@@ -40,7 +41,6 @@
             this.HidePolyButton = new System.Windows.Forms.Button();
             this.CrcSelector = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.RefOutLabel = new System.Windows.Forms.Label();
             this.msgScintilla = new ScintillaNET.Scintilla();
             this.scintillaAsm = new ScintillaNET.Scintilla();
             this.RegistersPanel = new System.Windows.Forms.Panel();
@@ -84,6 +84,8 @@
             this.InitLabel = new System.Windows.Forms.Label();
             this.PolyTextBox = new System.Windows.Forms.TextBox();
             this.PolyLabel = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.TopPanel.SuspendLayout();
             this.TopCrcPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BitsNumUD)).BeginInit();
@@ -127,6 +129,17 @@
             this.TopCrcPanel.Name = "TopCrcPanel";
             this.TopCrcPanel.Size = new System.Drawing.Size(428, 45);
             this.TopCrcPanel.TabIndex = 2;
+            // 
+            // RefOutLabel
+            // 
+            this.RefOutLabel.AutoSize = true;
+            this.RefOutLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.RefOutLabel.ForeColor = System.Drawing.Color.White;
+            this.RefOutLabel.Location = new System.Drawing.Point(356, 11);
+            this.RefOutLabel.Name = "RefOutLabel";
+            this.RefOutLabel.Size = new System.Drawing.Size(59, 21);
+            this.RefOutLabel.TabIndex = 11;
+            this.RefOutLabel.Text = "RefOut";
             // 
             // BitsNumUD
             // 
@@ -260,17 +273,6 @@
             this.panel2.Size = new System.Drawing.Size(806, 566);
             this.panel2.TabIndex = 1;
             // 
-            // RefOutLabel
-            // 
-            this.RefOutLabel.AutoSize = true;
-            this.RefOutLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.RefOutLabel.ForeColor = System.Drawing.Color.White;
-            this.RefOutLabel.Location = new System.Drawing.Point(356, 11);
-            this.RefOutLabel.Name = "RefOutLabel";
-            this.RefOutLabel.Size = new System.Drawing.Size(59, 21);
-            this.RefOutLabel.TabIndex = 11;
-            this.RefOutLabel.Text = "RefOut";
-            // 
             // msgScintilla
             // 
             this.msgScintilla.AutoCMaxHeight = 9;
@@ -305,6 +307,8 @@
             // RegistersPanel
             // 
             this.RegistersPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.RegistersPanel.Controls.Add(this.label1);
+            this.RegistersPanel.Controls.Add(this.button1);
             this.RegistersPanel.Controls.Add(this.panel9);
             this.RegistersPanel.Controls.Add(this.panel8);
             this.RegistersPanel.Controls.Add(this.panel5);
@@ -759,15 +763,36 @@
             this.PolyLabel.ForeColor = System.Drawing.Color.White;
             this.PolyLabel.Location = new System.Drawing.Point(13, 5);
             this.PolyLabel.Name = "PolyLabel";
-            this.PolyLabel.Size = new System.Drawing.Size(80, 21);
+            this.PolyLabel.Size = new System.Drawing.Size(79, 21);
             this.PolyLabel.TabIndex = 6;
             this.PolyLabel.Text = "Poly (Hex)";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(700, 33);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 15;
+            this.button1.Text = ">>";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(669, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(130, 17);
+            this.label1.TabIndex = 28;
+            this.label1.Text = "Рассчитать до конца";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(804, 562);
+            this.ClientSize = new System.Drawing.Size(804, 561);
             this.Controls.Add(this.panel2);
             this.MaximumSize = new System.Drawing.Size(820, 600);
             this.MinimumSize = new System.Drawing.Size(820, 600);
@@ -860,6 +885,8 @@
         private System.Windows.Forms.NumericUpDown BitsNumUD;
         private System.Windows.Forms.Label RefInLabel;
         private System.Windows.Forms.Label RefOutLabel;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button1;
     }
 }
 
