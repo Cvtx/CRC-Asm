@@ -244,8 +244,8 @@ namespace CRC
                 // байты закончились
                 if (pos == (len-1))
                 {
-                    Sleep();
                     UpdComment("Вычисление CRC завершено След. шаг обнулит регистры");
+                    Sleep();
                     Reset();
                 }
                 else
@@ -412,5 +412,6 @@ namespace CRC
         {
             CrcPanel.Visible = !CrcPanel.Visible;
         }
+
     }
 }

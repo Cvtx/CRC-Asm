@@ -30,6 +30,8 @@
         {
             this.TopPanel = new System.Windows.Forms.Panel();
             this.TopCrcPanel = new System.Windows.Forms.Panel();
+            this.BitsNumUD = new System.Windows.Forms.NumericUpDown();
+            this.RefInLabel = new System.Windows.Forms.Label();
             this.BitsLabel = new System.Windows.Forms.Label();
             this.RefOutCB = new System.Windows.Forms.CheckBox();
             this.RefInCB = new System.Windows.Forms.CheckBox();
@@ -38,6 +40,7 @@
             this.HidePolyButton = new System.Windows.Forms.Button();
             this.CrcSelector = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.RefOutLabel = new System.Windows.Forms.Label();
             this.msgScintilla = new ScintillaNET.Scintilla();
             this.scintillaAsm = new ScintillaNET.Scintilla();
             this.RegistersPanel = new System.Windows.Forms.Panel();
@@ -81,9 +84,9 @@
             this.InitLabel = new System.Windows.Forms.Label();
             this.PolyTextBox = new System.Windows.Forms.TextBox();
             this.PolyLabel = new System.Windows.Forms.Label();
-            this.BitsNumUD = new System.Windows.Forms.NumericUpDown();
             this.TopPanel.SuspendLayout();
             this.TopCrcPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BitsNumUD)).BeginInit();
             this.panel2.SuspendLayout();
             this.RegistersPanel.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -94,7 +97,6 @@
             this.CrcPanel.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BitsNumUD)).BeginInit();
             this.SuspendLayout();
             // 
             // TopPanel
@@ -115,7 +117,9 @@
             // TopCrcPanel
             // 
             this.TopCrcPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.TopCrcPanel.Controls.Add(this.RefOutLabel);
             this.TopCrcPanel.Controls.Add(this.BitsNumUD);
+            this.TopCrcPanel.Controls.Add(this.RefInLabel);
             this.TopCrcPanel.Controls.Add(this.BitsLabel);
             this.TopCrcPanel.Controls.Add(this.RefOutCB);
             this.TopCrcPanel.Controls.Add(this.RefInCB);
@@ -123,6 +127,40 @@
             this.TopCrcPanel.Name = "TopCrcPanel";
             this.TopCrcPanel.Size = new System.Drawing.Size(428, 45);
             this.TopCrcPanel.TabIndex = 2;
+            // 
+            // BitsNumUD
+            // 
+            this.BitsNumUD.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.BitsNumUD.Location = new System.Drawing.Point(128, 11);
+            this.BitsNumUD.Maximum = new decimal(new int[] {
+            64,
+            0,
+            0,
+            0});
+            this.BitsNumUD.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.BitsNumUD.Name = "BitsNumUD";
+            this.BitsNumUD.Size = new System.Drawing.Size(66, 22);
+            this.BitsNumUD.TabIndex = 13;
+            this.BitsNumUD.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // RefInLabel
+            // 
+            this.RefInLabel.AutoSize = true;
+            this.RefInLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.RefInLabel.ForeColor = System.Drawing.Color.White;
+            this.RefInLabel.Location = new System.Drawing.Point(279, 10);
+            this.RefInLabel.Name = "RefInLabel";
+            this.RefInLabel.Size = new System.Drawing.Size(46, 21);
+            this.RefInLabel.TabIndex = 10;
+            this.RefInLabel.Text = "RefIn";
             // 
             // BitsLabel
             // 
@@ -140,11 +178,10 @@
             this.RefOutCB.AutoSize = true;
             this.RefOutCB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.RefOutCB.ForeColor = System.Drawing.Color.White;
-            this.RefOutCB.Location = new System.Drawing.Point(334, 11);
+            this.RefOutCB.Location = new System.Drawing.Point(335, 15);
             this.RefOutCB.Name = "RefOutCB";
-            this.RefOutCB.Size = new System.Drawing.Size(78, 25);
+            this.RefOutCB.Size = new System.Drawing.Size(15, 14);
             this.RefOutCB.TabIndex = 12;
-            this.RefOutCB.Text = "RefOut";
             this.RefOutCB.UseVisualStyleBackColor = true;
             // 
             // RefInCB
@@ -152,11 +189,10 @@
             this.RefInCB.AutoSize = true;
             this.RefInCB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.RefInCB.ForeColor = System.Drawing.Color.White;
-            this.RefInCB.Location = new System.Drawing.Point(255, 11);
+            this.RefInCB.Location = new System.Drawing.Point(255, 15);
             this.RefInCB.Name = "RefInCB";
-            this.RefInCB.Size = new System.Drawing.Size(65, 25);
+            this.RefInCB.Size = new System.Drawing.Size(15, 14);
             this.RefInCB.TabIndex = 11;
-            this.RefInCB.Text = "RefIn";
             this.RefInCB.UseVisualStyleBackColor = true;
             // 
             // StartButton
@@ -224,6 +260,17 @@
             this.panel2.Size = new System.Drawing.Size(806, 566);
             this.panel2.TabIndex = 1;
             // 
+            // RefOutLabel
+            // 
+            this.RefOutLabel.AutoSize = true;
+            this.RefOutLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.RefOutLabel.ForeColor = System.Drawing.Color.White;
+            this.RefOutLabel.Location = new System.Drawing.Point(356, 11);
+            this.RefOutLabel.Name = "RefOutLabel";
+            this.RefOutLabel.Size = new System.Drawing.Size(59, 21);
+            this.RefOutLabel.TabIndex = 11;
+            this.RefOutLabel.Text = "RefOut";
+            // 
             // msgScintilla
             // 
             this.msgScintilla.AutoCMaxHeight = 9;
@@ -250,7 +297,7 @@
             this.scintillaAsm.Name = "scintillaAsm";
             this.scintillaAsm.Size = new System.Drawing.Size(231, 338);
             this.scintillaAsm.TabIndex = 7;
-            this.scintillaAsm.Text = "\tmov crc, Init\r\n\tmov ax, crc\r\n\tmov bl, msgByte\r\n\txor ax, bx   \r\n\tmov ex, 9\r\n@@L1:" +
+            this.scintillaAsm.Text = "\tmov crc, Init\r\n\tmov ax, crc\r\n\tmov bl, msgByte\r\n\txor ax, bx   \r\n\tmov cx, 9\r\n@@L1:" +
     "\r\n\tdec cx\r\n\tjcxz @@L2\r\n\tshr ax, 1      \r\n\tjnc  @@L1   \r\n\txor ax, $A001\r\n\tjmp @@L" +
     "1\r\n@@L2:         \r\n\tmov crc, ax";
             this.scintillaAsm.VScrollBar = false;
@@ -712,38 +759,15 @@
             this.PolyLabel.ForeColor = System.Drawing.Color.White;
             this.PolyLabel.Location = new System.Drawing.Point(13, 5);
             this.PolyLabel.Name = "PolyLabel";
-            this.PolyLabel.Size = new System.Drawing.Size(79, 21);
+            this.PolyLabel.Size = new System.Drawing.Size(80, 21);
             this.PolyLabel.TabIndex = 6;
             this.PolyLabel.Text = "Poly (Hex)";
-            // 
-            // BitsNumUD
-            // 
-            this.BitsNumUD.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.BitsNumUD.Location = new System.Drawing.Point(128, 11);
-            this.BitsNumUD.Maximum = new decimal(new int[] {
-            64,
-            0,
-            0,
-            0});
-            this.BitsNumUD.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.BitsNumUD.Name = "BitsNumUD";
-            this.BitsNumUD.Size = new System.Drawing.Size(66, 22);
-            this.BitsNumUD.TabIndex = 13;
-            this.BitsNumUD.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(804, 561);
+            this.ClientSize = new System.Drawing.Size(804, 562);
             this.Controls.Add(this.panel2);
             this.MaximumSize = new System.Drawing.Size(820, 600);
             this.MinimumSize = new System.Drawing.Size(820, 600);
@@ -754,6 +778,7 @@
             this.TopPanel.ResumeLayout(false);
             this.TopCrcPanel.ResumeLayout(false);
             this.TopCrcPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BitsNumUD)).EndInit();
             this.panel2.ResumeLayout(false);
             this.RegistersPanel.ResumeLayout(false);
             this.RegistersPanel.PerformLayout();
@@ -773,7 +798,6 @@
             this.panel7.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BitsNumUD)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -834,6 +858,8 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.NumericUpDown BitsNumUD;
+        private System.Windows.Forms.Label RefInLabel;
+        private System.Windows.Forms.Label RefOutLabel;
     }
 }
 

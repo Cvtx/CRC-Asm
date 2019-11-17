@@ -6,9 +6,6 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRC", "CRC.csproj", "{D2A466D1-DFF5-4AB3-9054-22F7B12C356A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B03193B1-0E4B-4DCF-A615-3F7826CC0138}"
-	ProjectSection(SolutionItems) = preProject
-		packages\Scintilla\ScintillaNET.dll = packages\Scintilla\ScintillaNET.dll
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
