@@ -2,7 +2,7 @@
 
 https://github.com/Cvtx/CRC-Asm/releases
 
-### Для работы необходим .NET Framework 4.7.2 или выше
+### Для работы необходим .NET Framework версии 4.7.2 или выше
 [.NET Framework 4.7.2](https://dotnet.microsoft.com/download/dotnet-framework/net472 "Скачать с официального сайта Microsoft")
 
 
