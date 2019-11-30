@@ -322,6 +322,19 @@ namespace CRC
             InitSyntaxColoring();
             InitNumberMargin();
             CrcSelector.SelectedIndex = 0;
+            toolTipRefIn.SetToolTip(RefInLabel, "Флаг, указывающий на начало и направление вычислений. False — начиная со старшего значащего бита (MSB-first), или True — с младшего (LSB-first)");
+            toolTipRefOut.SetToolTip(RefOutLabel, "Флаг, определяющий, инвертируется ли порядок битов регистра при входе на элемент XOR");
+            toolTipStart.SetToolTip(StartButton, "Начать пошаговое вычислениие");
+            toolTipPoly.SetToolTip(PolyLabel, "Производящий полином в HEX");
+            toolTipInit.SetToolTip(InitLabel, "Стартовые данные, то есть значение регистра на момент начала вычислений");
+            toolTipXorOut.SetToolTip(XorOutLabel, "Число, с которым складывается по модулю 2 полученный результат");
+            toolTipAX.SetToolTip(AxLabel,"Регистр, в котором хранится CRC");
+            toolTipBX.SetToolTip(BxLabel, "Регистр, в котором хранится очередной байт сообщения");
+            toolTipCX.SetToolTip(CxLabel, "Регистр - счетчик для цикла");
+            toolTipBits.SetToolTip(BitsLabel, "Степень порождающего контрольную сумму многочлена");
+            toolTipHideFirst.SetToolTip(HidePolyButton, "Скрыть/Показать первую панель");
+            toolTipHideRegisters.SetToolTip(HideRegButton, "Скрыть/Показать панель регистров");
+
         }
 
         public static Color IntToColor(int rgb)
