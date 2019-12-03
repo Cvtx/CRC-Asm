@@ -212,7 +212,7 @@
             // 
             this.BytesNumericUD.Location = new System.Drawing.Point(260, 13);
             this.BytesNumericUD.Maximum = new decimal(new int[] {
-            16,
+            10000,
             0,
             0,
             0});

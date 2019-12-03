@@ -15,11 +15,12 @@ namespace CRC
 {
     public partial class MainForm : Form
     {
+        private const string StandartHintString = "Наведитесь мышкой на элемент \r\nинтерфейса, чтобы получить \r\nкраткую справку о нем";
+        private const string ActivateHintString = "Справка на данный момент \r\nнеактивна, подсказки \r\nотображаться не будут";
         public byte[] buf = { 0 };
         public byte len = 0;
         UInt16 crc = 0xFFFF;
-        bool ThreadIsAlive = false;
-        bool StepbyStep = true;
+        bool ThreadIsAlive = false, StepbyStep = true, ByBytes = false;
         private Thread CrcThread;
 
         public MainForm()
@@ -32,7 +33,7 @@ namespace CRC
             switch (n) {
 
                 // Custom
-                case 0:
+                case 1:
                         BitsNumUD.Value = 1;
                         PolyTextBox.Clear();
                         InitTextBox.Clear();
@@ -51,7 +52,7 @@ namespace CRC
                         break;
 
                 // CRC-16 / MODBUS
-                case 1:
+                case 0:
                         BitsNumUD.Value = 16;
                         PolyTextBox.Text = "8005";
                         InitTextBox.Text = "FFFF";
@@ -86,6 +87,7 @@ namespace CRC
                 var result = f.ShowDialog();
                 if (result == DialogResult.OK)
                 {
+                    Reset();
                     buf = f.buf;
                     len = f.BytesNum;
 
@@ -106,8 +108,12 @@ namespace CRC
                     msgScintilla.Lines[0].Goto();
                     msgScintilla.ReadOnly = true;
 
+                    if (ThreadIsAlive) { CrcThread.Abort(); }
+
                     ThreadIsAlive = true;
                     NextStepButton.Enabled = true;
+                    CalcAllButton.Enabled = true;
+                    NextByteButton.Enabled = true;
 
                     CrcThread = new Thread(new ThreadStart(CrcCalc));
                     CrcThread.Start();
@@ -241,14 +247,13 @@ namespace CRC
                 HighlightAsm(14);
                 UpdComment("Сохранение результата в переменной CRC");
                 Sleep();
-
+               
                 // байты закончились
                 if (pos == (len-1))
                 {
                     StepbyStep = true;
-                    UpdComment("Вычисление CRC завершено След. шаг обнулит регистры");
+                    UpdComment("Вычисление CRC завершено, результат хранится в регистре AX");
                     Sleep();
-                    Reset();
                 }
                 else
                 {
@@ -257,6 +262,11 @@ namespace CRC
                     Sleep();
                     HighlightAsm(3);
                     UpdComment("Занесение очередного байта сообщения в регистр bl");
+                    if (ByBytes)
+                    {
+                        StepbyStep = true;
+                        ByBytes = false;
+                    }
                     HighlightByte((byte)(pos + 2));
                     Sleep();
                     UpdBx(buf[pos + 1]);
@@ -285,7 +295,15 @@ namespace CRC
             msgScintilla.CaretLineVisibleAlways = false;
 
             NextStepButton.Enabled = false;
+            CalcAllButton.Enabled = false;
+            NextByteButton.Enabled = false;
+
             StepbyStep = true;
+            ByBytes = false;
+
+            msgScintilla.ReadOnly = false;
+            msgScintilla.ClearAll();
+            msgScintilla.ReadOnly = true;
         }
 
         void Sleep() { 
@@ -322,18 +340,18 @@ namespace CRC
             InitSyntaxColoring();
             InitNumberMargin();
             CrcSelector.SelectedIndex = 0;
-            toolTipRefIn.SetToolTip(RefInLabel, "Флаг, указывающий на начало и направление вычислений. False — начиная со старшего значащего бита (MSB-first), или True — с младшего (LSB-first)");
-            toolTipRefOut.SetToolTip(RefOutLabel, "Флаг, определяющий, инвертируется ли порядок битов регистра при входе на элемент XOR");
-            toolTipStart.SetToolTip(StartButton, "Начать пошаговое вычислениие");
-            toolTipPoly.SetToolTip(PolyLabel, "Производящий полином в HEX");
-            toolTipInit.SetToolTip(InitLabel, "Стартовые данные, то есть значение регистра на момент начала вычислений");
-            toolTipXorOut.SetToolTip(XorOutLabel, "Число, с которым складывается по модулю 2 полученный результат");
-            toolTipAX.SetToolTip(AxLabel,"Регистр, в котором хранится CRC");
-            toolTipBX.SetToolTip(BxLabel, "Регистр, в котором хранится очередной байт сообщения");
-            toolTipCX.SetToolTip(CxLabel, "Регистр - счетчик для цикла");
-            toolTipBits.SetToolTip(BitsLabel, "Степень порождающего контрольную сумму многочлена");
-            toolTipHideFirst.SetToolTip(HidePolyButton, "Скрыть/Показать первую панель");
-            toolTipHideRegisters.SetToolTip(HideRegButton, "Скрыть/Показать панель регистров");
+            //toolTipRefIn.SetToolTip(RefInLabel, "Флаг, указывающий на начало и направление вычислений. False — начиная со старшего значащего бита (MSB-first), или True — с младшего (LSB-first)");
+            //toolTipRefOut.SetToolTip(RefOutLabel, "Флаг, определяющий, инвертируется ли порядок битов регистра при входе на элемент XOR");
+            //toolTipStart.SetToolTip(StartButton, "Начать пошаговое вычислениие");
+            //toolTipPoly.SetToolTip(PolyLabel, "Производящий полином в HEX");
+            //toolTipInit.SetToolTip(InitLabel, "Стартовые данные, то есть значение регистра на момент начала вычислений");
+            //toolTipXorOut.SetToolTip(XorOutLabel, "Число, с которым складывается по модулю 2 полученный результат");
+            //toolTipAX.SetToolTip(AxLabel,"Регистр, в котором хранится CRC");
+            //toolTipBX.SetToolTip(BxLabel, "Регистр, в котором хранится очередной байт сообщения");
+            //toolTipCX.SetToolTip(CxLabel, "Регистр - счетчик для цикла");
+            //toolTipBits.SetToolTip(BitsLabel, "Степень порождающего контрольную сумму многочлена");
+            ////toolTipHideFirst.SetToolTip(HidePolyButton, "Скрыть/Показать первую панель");
+            //toolTipHideRegisters.SetToolTip(HideRegButton, "Скрыть/Показать панель информации о текущем стандарте CRC");
 
         }
 
@@ -442,6 +460,322 @@ namespace CRC
                     StepbyStep = false;
             }
             CrcThread.Interrupt();
+        }
+
+        private void CrcSelector_DropDownClosed(object sender, EventArgs e)
+        {
+            HelpLabel.Focus();
+        }
+
+        private void Hint(string message)
+        {
+            if (HelpCheckBox.Checked) {
+                HintLabel.Text = message;
+                StandartHint.Visible = false;
+            }
+        }
+
+        private void NoHint()
+        {
+            if (HelpCheckBox.Checked)
+            {
+                HintLabel.Text = "";
+                StandartHint.Visible = true;
+            }
+        }
+
+        private void HelpCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (HelpCheckBox.Checked == false)
+            {
+                HintLabel.Text = "";
+                StandartHint.Visible = true;
+                StandartHint.Text = ActivateHintString;
+            }
+            else
+            {
+                HintLabel.Text = "";
+                StandartHint.Visible = true;
+                StandartHint.Text = StandartHintString;
+            }
+            
+        }
+
+        private void AxLabel_MouseEnter(object sender, EventArgs e)
+        {
+            Hint("Регистр, в котором хранится \r\nконтрольная сумма (CRC)");
+        }
+
+        private void AxLabel_MouseLeave(object sender, EventArgs e)
+        {
+            NoHint();
+        }
+
+        private void BxLabel_MouseEnter(object sender, EventArgs e)
+        {
+            Hint("Регистр, в котором хранится \r\nбайт сообщения, который \r\nв данный момент обрабатывается");
+        }
+
+        private void BxLabel_MouseLeave(object sender, EventArgs e)
+        {
+            NoHint();
+        }
+
+        private void CxLabel_MouseEnter(object sender, EventArgs e)
+        {
+            Hint("Регистр, в котором хранится \r\nсчетчик цикла, который \r\nуменьшается с каждой итерацией");
+        }
+
+        private void CxLabel_MouseLeave(object sender, EventArgs e)
+        {
+            NoHint();
+        }
+
+        private void ControlPanel_MouseEnter(object sender, EventArgs e)
+        {
+            Hint("Панель управления содержит \r\nэлементы управления пошаговым \r\nвыполнением программы ");
+        }
+
+        private void ControlPanel_MouseLeave(object sender, EventArgs e)
+        {
+            NoHint();
+        }
+
+        private void NextStepButton_MouseEnter(object sender, EventArgs e)
+        {
+            Hint("Выполнить одну строку в коде \r\nпрограммы");
+        }
+
+        private void NextStepButton_MouseLeave(object sender, EventArgs e)
+        {
+            NoHint();
+        }
+
+        private void button2_MouseEnter(object sender, EventArgs e)
+        {
+            Hint("Выполнить блок команд для \r\nрасчёта одного байта сообщения");
+        }
+
+        private void button2_MouseLeave(object sender, EventArgs e)
+        {
+            NoHint();
+        }
+
+        private void button1_MouseEnter(object sender, EventArgs e)
+        {
+            Hint("Выполнить окончательный расчёт \r\nконтрольной суммы");
+        }
+
+        private void CommentPanel_MouseEnter(object sender, EventArgs e)
+        {
+            Hint("Комментарий к выделенной \r\nстроке в коде программы");
+        }
+
+        private void CommentPanel_MouseLeave(object sender, EventArgs e)
+        {
+            NoHint();
+        }
+
+        private void msgPanel_MouseEnter(object sender, EventArgs e)
+        {
+            Hint("Сообщение, разбитое по байтам, \r\nкаждый из которых находится на \r\nотдельной строке");
+        }
+
+        private void msgPanel_MouseLeave(object sender, EventArgs e)
+        {
+            NoHint();
+        }
+
+        private void CodePanel_MouseEnter(object sender, EventArgs e)
+        {
+            Hint("Код программы на языке \r\nассемблера, выполняющий расчёт \r\nкотрольной суммы");
+        }
+
+        private void CodePanel_MouseLeave(object sender, EventArgs e)
+        {
+            NoHint();
+        }
+
+        private void label3_MouseEnter(object sender, EventArgs e)
+        {
+            Hint("Панель управления содержит \r\nэлементы управления пошаговым \r\nвыполнением программы ");
+        }
+
+        private void panel3_MouseEnter(object sender, EventArgs e)
+        {
+            Hint("Панель управления содержит \r\nэлементы управления пошаговым \r\nвыполнением программы ");
+        }
+
+        private void panel3_MouseLeave(object sender, EventArgs e)
+        {
+            NoHint();
+        }
+
+        private void label3_MouseLeave(object sender, EventArgs e)
+        {
+            NoHint();
+        }
+
+        private void label6_MouseEnter(object sender, EventArgs e)
+        {
+            Hint("Панель управления содержит \r\nэлементы управления пошаговым \r\nвыполнением программы ");
+        }
+
+        private void label5_MouseEnter(object sender, EventArgs e)
+        {
+            Hint("Панель управления содержит \r\nэлементы управления пошаговым \r\nвыполнением программы ");
+        }
+
+        private void label1_MouseEnter(object sender, EventArgs e)
+        {
+            Hint("Панель управления содержит \r\nэлементы управления пошаговым \r\nвыполнением программы ");
+        }
+
+        private void HelpCheckBox_MouseEnter(object sender, EventArgs e)
+        {
+            Hint("Включить/отключить работу \r\nсправки");
+        }
+
+        private void HelpCheckBox_MouseLeave(object sender, EventArgs e)
+        {
+            NoHint();
+        }
+
+        private void HideRegButton_MouseEnter(object sender, EventArgs e)
+        {
+            Hint("Показать/Скрыть панель с \r\nинформацией о выбранном \r\nстандарте CRC");
+        }
+
+        private void StartButton_MouseEnter(object sender, EventArgs e)
+        {
+            Hint("Начать работу с программой, \r\nпереход к вводу сообщения");
+        }
+
+        private void StartButton_MouseLeave(object sender, EventArgs e)
+        {
+            NoHint();
+        }
+
+        private void CrcSelector_MouseEnter(object sender, EventArgs e)
+        {
+            Hint("Меню выбора стандарта CRC");
+        }
+
+        private void panel11_MouseEnter(object sender, EventArgs e)
+        {
+            Hint("Флаг, указывающий на начало и \r\nнаправление вычислений. \r\nFalse — начиная со старшего \r\nзначащего бита (MSB - first), \r\nили True — с младшего (LSB - first)");
+        }
+
+        private void panel11_MouseLeave(object sender, EventArgs e)
+        {
+            NoHint();
+        }
+
+        private void panel12_MouseEnter(object sender, EventArgs e)
+        {
+            Hint("Флаг, определяющий, \r\nинвертируется ли порядок битов \r\nрегистра при входе на элемент XOR");
+        }
+
+        private void panel12_MouseLeave(object sender, EventArgs e)
+        {
+            NoHint();
+        }
+
+        private void panel4_MouseEnter(object sender, EventArgs e)
+        {
+            Hint("Стартовые данные, то есть значение \r\nрегистра AX на момент начала \r\nвычислений");
+        }
+
+        private void panel4_MouseLeave(object sender, EventArgs e)
+        {
+            NoHint();
+        }
+
+        private void panel7_MouseEnter(object sender, EventArgs e)
+        {
+            Hint("Число, с которым складывается \r\nпо модулю 2 полученный результат");
+        }
+
+        private void panel7_MouseLeave(object sender, EventArgs e)
+        {
+            NoHint();
+        }
+
+        private void panel10_MouseEnter(object sender, EventArgs e)
+        {
+            Hint("Производящий полином в HEX");
+        }
+
+        private void panel10_MouseLeave(object sender, EventArgs e)
+        {
+            NoHint();
+        }
+
+        private void panel1_MouseEnter(object sender, EventArgs e)
+        {
+            Hint("Степень порождающего \r\nконтрольную сумму многочлена");
+        }
+
+        private void panel1_MouseLeave(object sender, EventArgs e)
+        {
+            NoHint();
+        }
+
+        private void BitsLabel_MouseEnter(object sender, EventArgs e)
+        {
+            Hint("Степень порождающего \r\nконтрольную сумму многочлена");
+        }
+
+        private void PolyLabel_MouseEnter(object sender, EventArgs e)
+        {
+            Hint("Производящий полином в HEX");
+        }
+
+        private void InitLabel_MouseEnter(object sender, EventArgs e)
+        {
+            Hint("Стартовые данные, то есть значение \r\nрегистра AX на момент начала \r\nвычислений");
+        }
+
+        private void XorOutLabel_MouseEnter(object sender, EventArgs e)
+        {
+            Hint("Число, с которым складывается \r\nпо модулю 2 полученный результат");
+        }
+
+        private void NextByteButton_Click(object sender, EventArgs e)
+        {
+            ByBytes = true;
+            StepbyStep = false;
+            CrcThread.Interrupt();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Reset();
+        }
+
+        private void button1_MouseEnter_1(object sender, EventArgs e)
+        {
+            Hint("Приводит программу к\r\nпервоначальному виду");
+        }
+
+        private void button1_MouseLeave(object sender, EventArgs e)
+        {
+            NoHint();
+        }
+
+        private void label8_MouseEnter(object sender, EventArgs e)
+        {
+            Hint("Панель управления содержит \r\nэлементы управления пошаговым \r\nвыполнением программы ");
+        }
+
+        private void RefInLabel_MouseEnter(object sender, EventArgs e)
+        {
+            Hint("Флаг, указывающий на начало и \r\nнаправление вычислений. \r\nFalse — начиная со старшего \r\nзначащего бита (MSB - first), \r\nили True — с младшего (LSB - first)");
+        }
+
+        private void RefOutLabel_MouseEnter(object sender, EventArgs e)
+        {
+            Hint("Флаг, определяющий, \r\nинвертируется ли порядок битов \r\nрегистра при входе на элемент XOR");
         }
     }
 }

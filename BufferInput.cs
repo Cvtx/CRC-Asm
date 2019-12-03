@@ -16,7 +16,7 @@ namespace CRC
     {
         private bool DealogIsOk = false;
         public byte[] buf { get; set; }
-        public byte BytesNum, RemainingNum;
+        public byte BytesNum, RemainingNum, count = 1;
        
         public BufferInputForm()
         {
@@ -77,7 +77,17 @@ namespace CRC
                 buf[BytesNum - RemainingNum] = (byte)HexInput.Value;
                 RemainingNum--;
                 MsgScintilla.ReadOnly = false;
-                MsgScintilla.AppendText(((int)HexInput.Value).ToString("X") + " ");
+                if (count % 8 == 0) 
+                {
+                    MsgScintilla.AppendText(((int)HexInput.Value).ToString("X") + "\r\n");
+                    count = 1;
+                }
+                else
+                {
+                    count++;
+                    MsgScintilla.AppendText(((int)HexInput.Value).ToString("X") + " ");
+                }
+                
                 MsgScintilla.ReadOnly = true;
                 BytesLeftLabel.Text = RemainingNum.ToString();
                 HexInput.Value = 0;
