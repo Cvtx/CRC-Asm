@@ -181,7 +181,7 @@
             this.StartButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.StartButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.StartButton.ForeColor = System.Drawing.Color.White;
-            this.StartButton.Location = new System.Drawing.Point(43, 13);
+            this.StartButton.Location = new System.Drawing.Point(49, 15);
             this.StartButton.Name = "StartButton";
             this.StartButton.Size = new System.Drawing.Size(83, 32);
             this.StartButton.TabIndex = 6;
@@ -207,7 +207,7 @@
             this.HideRegButton.Size = new System.Drawing.Size(105, 23);
             this.HideRegButton.TabIndex = 3;
             this.HideRegButton.TabStop = false;
-            this.HideRegButton.Text = "Классификация";
+            this.HideRegButton.Text = "Спецификация";
             this.HideRegButton.UseVisualStyleBackColor = false;
             this.HideRegButton.Click += new System.EventHandler(this.HideRegButton_Click);
             this.HideRegButton.MouseEnter += new System.EventHandler(this.HideRegButton_MouseEnter);

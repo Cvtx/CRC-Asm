@@ -220,6 +220,7 @@ namespace CRC
                         Sleep();
 
                         crc ^= 0xA001;
+                        //crc ^= 0x8005;
                         UpdCrc(crc);
 
                         HighlightAsm(12);
