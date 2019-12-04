@@ -49,9 +49,11 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.ControlPanel = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.NextByteButton = new System.Windows.Forms.Button();
             this.CalcAllButton = new System.Windows.Forms.Button();
             this.NextStepButton = new System.Windows.Forms.Button();
@@ -61,19 +63,6 @@
             this.CommentPanel = new System.Windows.Forms.Panel();
             this.Commentary = new System.Windows.Forms.Label();
             this.CommentaryLabel = new System.Windows.Forms.Label();
-            this.CrcPanel = new System.Windows.Forms.Panel();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.PolyLabel = new System.Windows.Forms.Label();
-            this.PolyTextBox = new System.Windows.Forms.TextBox();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.XorOutLabel = new System.Windows.Forms.Label();
-            this.XorOutTextBox = new System.Windows.Forms.TextBox();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.InitLabel = new System.Windows.Forms.Label();
-            this.InitTextBox = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.msgScintilla = new ScintillaNET.Scintilla();
             this.msgPanel = new System.Windows.Forms.Panel();
             this.CodePanel = new System.Windows.Forms.Panel();
@@ -95,6 +84,19 @@
             this.DecLabel = new System.Windows.Forms.Label();
             this.HexLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.CrcPanel = new System.Windows.Forms.Panel();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.XorOutLabel = new System.Windows.Forms.Label();
+            this.XorOutTextBox = new System.Windows.Forms.TextBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.InitLabel = new System.Windows.Forms.Label();
+            this.InitTextBox = new System.Windows.Forms.TextBox();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.PolyLabel = new System.Windows.Forms.Label();
+            this.PolyTextBox = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.toolTipRefIn = new System.Windows.Forms.ToolTip(this.components);
             this.toolTipRefOut = new System.Windows.Forms.ToolTip(this.components);
             this.toolTipStart = new System.Windows.Forms.ToolTip(this.components);
@@ -108,8 +110,6 @@
             this.toolTipBits = new System.Windows.Forms.ToolTip(this.components);
             this.toolTipHideFirst = new System.Windows.Forms.ToolTip(this.components);
             this.toolTipHideRegisters = new System.Windows.Forms.ToolTip(this.components);
-            this.button1 = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
             this.TopPanel.SuspendLayout();
             this.TopCrcPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BitsNumUD)).BeginInit();
@@ -118,17 +118,17 @@
             this.ControlPanel.SuspendLayout();
             this.panel3.SuspendLayout();
             this.CommentPanel.SuspendLayout();
-            this.CrcPanel.SuspendLayout();
-            this.panel12.SuspendLayout();
-            this.panel11.SuspendLayout();
-            this.panel10.SuspendLayout();
-            this.panel7.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.RegistersPanel.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.CrcPanel.SuspendLayout();
+            this.panel12.SuspendLayout();
+            this.panel11.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel10.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // TopPanel
@@ -154,7 +154,7 @@
             this.HelpCheckBox.ForeColor = System.Drawing.Color.White;
             this.HelpCheckBox.Location = new System.Drawing.Point(539, 16);
             this.HelpCheckBox.Name = "HelpCheckBox";
-            this.HelpCheckBox.Size = new System.Drawing.Size(128, 17);
+            this.HelpCheckBox.Size = new System.Drawing.Size(129, 17);
             this.HelpCheckBox.TabIndex = 16;
             this.HelpCheckBox.TabStop = false;
             this.HelpCheckBox.Text = "Включить справку?";
@@ -168,9 +168,9 @@
             this.TopCrcPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.TopCrcPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TopCrcPanel.Controls.Add(this.StartButton);
-            this.TopCrcPanel.Location = new System.Drawing.Point(182, 0);
+            this.TopCrcPanel.Location = new System.Drawing.Point(182, -9);
             this.TopCrcPanel.Name = "TopCrcPanel";
-            this.TopCrcPanel.Size = new System.Drawing.Size(181, 47);
+            this.TopCrcPanel.Size = new System.Drawing.Size(181, 56);
             this.TopCrcPanel.TabIndex = 2;
             // 
             // StartButton
@@ -181,7 +181,7 @@
             this.StartButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.StartButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.StartButton.ForeColor = System.Drawing.Color.White;
-            this.StartButton.Location = new System.Drawing.Point(44, 6);
+            this.StartButton.Location = new System.Drawing.Point(43, 13);
             this.StartButton.Name = "StartButton";
             this.StartButton.Size = new System.Drawing.Size(83, 32);
             this.StartButton.TabIndex = 6;
@@ -271,7 +271,7 @@
             this.RefInLabel.AutoSize = true;
             this.RefInLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.RefInLabel.ForeColor = System.Drawing.Color.White;
-            this.RefInLabel.Location = new System.Drawing.Point(27, 6);
+            this.RefInLabel.Location = new System.Drawing.Point(26, 5);
             this.RefInLabel.Name = "RefInLabel";
             this.RefInLabel.Size = new System.Drawing.Size(46, 21);
             this.RefInLabel.TabIndex = 10;
@@ -306,7 +306,7 @@
             this.RefInCB.AutoSize = true;
             this.RefInCB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.RefInCB.ForeColor = System.Drawing.Color.White;
-            this.RefInCB.Location = new System.Drawing.Point(3, 10);
+            this.RefInCB.Location = new System.Drawing.Point(5, 9);
             this.RefInCB.Name = "RefInCB";
             this.RefInCB.Size = new System.Drawing.Size(15, 14);
             this.RefInCB.TabIndex = 11;
@@ -326,8 +326,8 @@
             this.panel2.Controls.Add(this.msgScintilla);
             this.panel2.Controls.Add(this.msgPanel);
             this.panel2.Controls.Add(this.CodePanel);
-            this.panel2.Controls.Add(this.RegistersPanel);
             this.panel2.Controls.Add(this.CrcPanel);
+            this.panel2.Controls.Add(this.RegistersPanel);
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(695, 566);
@@ -340,7 +340,7 @@
             this.panel6.Controls.Add(this.StandartHint);
             this.panel6.Location = new System.Drawing.Point(424, 164);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(243, 179);
+            this.panel6.Size = new System.Drawing.Size(243, 162);
             this.panel6.TabIndex = 13;
             // 
             // HintLabel
@@ -407,12 +407,24 @@
             this.ControlPanel.Controls.Add(this.panel3);
             this.ControlPanel.Controls.Add(this.label6);
             this.ControlPanel.Controls.Add(this.label3);
-            this.ControlPanel.Location = new System.Drawing.Point(424, 339);
+            this.ControlPanel.Location = new System.Drawing.Point(424, 322);
             this.ControlPanel.Name = "ControlPanel";
             this.ControlPanel.Size = new System.Drawing.Size(243, 167);
             this.ControlPanel.TabIndex = 8;
             this.ControlPanel.MouseEnter += new System.EventHandler(this.ControlPanel_MouseEnter);
             this.ControlPanel.MouseLeave += new System.EventHandler(this.ControlPanel_MouseLeave);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(14, 137);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(120, 17);
+            this.label8.TabIndex = 29;
+            this.label8.Text = "Сброс программы";
+            this.label8.MouseEnter += new System.EventHandler(this.label8_MouseEnter);
             // 
             // label1
             // 
@@ -451,6 +463,29 @@
             this.panel3.TabIndex = 11;
             this.panel3.MouseEnter += new System.EventHandler(this.panel3_MouseEnter);
             this.panel3.MouseLeave += new System.EventHandler(this.panel3_MouseLeave);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(13, 128);
+            this.button1.Name = "button1";
+            this.button1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.button1.Size = new System.Drawing.Size(38, 34);
+            this.button1.TabIndex = 19;
+            this.button1.TabStop = false;
+            this.button1.Text = "↻";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.button1.MouseEnter += new System.EventHandler(this.button1_MouseEnter_1);
+            this.button1.MouseLeave += new System.EventHandler(this.button1_MouseLeave);
             // 
             // NextByteButton
             // 
@@ -591,152 +626,6 @@
             this.CommentaryLabel.Size = new System.Drawing.Size(112, 21);
             this.CommentaryLabel.TabIndex = 7;
             this.CommentaryLabel.Text = "Комментарий:";
-            // 
-            // CrcPanel
-            // 
-            this.CrcPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.CrcPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.CrcPanel.Controls.Add(this.panel12);
-            this.CrcPanel.Controls.Add(this.panel11);
-            this.CrcPanel.Controls.Add(this.panel7);
-            this.CrcPanel.Controls.Add(this.panel4);
-            this.CrcPanel.Controls.Add(this.panel10);
-            this.CrcPanel.Controls.Add(this.panel1);
-            this.CrcPanel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.CrcPanel.ForeColor = System.Drawing.Color.Black;
-            this.CrcPanel.Location = new System.Drawing.Point(-6, 45);
-            this.CrcPanel.Name = "CrcPanel";
-            this.CrcPanel.Size = new System.Drawing.Size(692, 73);
-            this.CrcPanel.TabIndex = 1;
-            // 
-            // panel12
-            // 
-            this.panel12.Controls.Add(this.RefOutCB);
-            this.panel12.Controls.Add(this.RefOutLabel);
-            this.panel12.Location = new System.Drawing.Point(527, 39);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(102, 32);
-            this.panel12.TabIndex = 19;
-            this.panel12.MouseEnter += new System.EventHandler(this.panel12_MouseEnter);
-            this.panel12.MouseLeave += new System.EventHandler(this.panel12_MouseLeave);
-            // 
-            // panel11
-            // 
-            this.panel11.Controls.Add(this.RefInCB);
-            this.panel11.Controls.Add(this.RefInLabel);
-            this.panel11.Location = new System.Drawing.Point(527, 5);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(102, 36);
-            this.panel11.TabIndex = 18;
-            this.panel11.MouseEnter += new System.EventHandler(this.panel11_MouseEnter);
-            this.panel11.MouseLeave += new System.EventHandler(this.panel11_MouseLeave);
-            // 
-            // panel10
-            // 
-            this.panel10.Controls.Add(this.PolyLabel);
-            this.panel10.Controls.Add(this.PolyTextBox);
-            this.panel10.Location = new System.Drawing.Point(22, 39);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(220, 32);
-            this.panel10.TabIndex = 17;
-            this.panel10.MouseEnter += new System.EventHandler(this.panel10_MouseEnter);
-            this.panel10.MouseLeave += new System.EventHandler(this.panel10_MouseLeave);
-            // 
-            // PolyLabel
-            // 
-            this.PolyLabel.AutoSize = true;
-            this.PolyLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.PolyLabel.ForeColor = System.Drawing.Color.White;
-            this.PolyLabel.Location = new System.Drawing.Point(3, 5);
-            this.PolyLabel.Name = "PolyLabel";
-            this.PolyLabel.Size = new System.Drawing.Size(79, 21);
-            this.PolyLabel.TabIndex = 6;
-            this.PolyLabel.Text = "Poly (Hex)";
-            this.PolyLabel.MouseEnter += new System.EventHandler(this.PolyLabel_MouseEnter);
-            // 
-            // PolyTextBox
-            // 
-            this.PolyTextBox.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.PolyTextBox.ForeColor = System.Drawing.Color.Black;
-            this.PolyTextBox.Location = new System.Drawing.Point(91, 5);
-            this.PolyTextBox.Name = "PolyTextBox";
-            this.PolyTextBox.Size = new System.Drawing.Size(120, 22);
-            this.PolyTextBox.TabIndex = 7;
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.XorOutLabel);
-            this.panel7.Controls.Add(this.XorOutTextBox);
-            this.panel7.Location = new System.Drawing.Point(265, 39);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(237, 33);
-            this.panel7.TabIndex = 16;
-            this.panel7.MouseEnter += new System.EventHandler(this.panel7_MouseEnter);
-            this.panel7.MouseLeave += new System.EventHandler(this.panel7_MouseLeave);
-            // 
-            // XorOutLabel
-            // 
-            this.XorOutLabel.AutoSize = true;
-            this.XorOutLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.XorOutLabel.ForeColor = System.Drawing.Color.White;
-            this.XorOutLabel.Location = new System.Drawing.Point(3, 5);
-            this.XorOutLabel.Name = "XorOutLabel";
-            this.XorOutLabel.Size = new System.Drawing.Size(100, 21);
-            this.XorOutLabel.TabIndex = 10;
-            this.XorOutLabel.Text = "XorOut (Hex)";
-            this.XorOutLabel.MouseEnter += new System.EventHandler(this.XorOutLabel_MouseEnter);
-            // 
-            // XorOutTextBox
-            // 
-            this.XorOutTextBox.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.XorOutTextBox.ForeColor = System.Drawing.Color.Black;
-            this.XorOutTextBox.Location = new System.Drawing.Point(109, 5);
-            this.XorOutTextBox.Name = "XorOutTextBox";
-            this.XorOutTextBox.Size = new System.Drawing.Size(120, 22);
-            this.XorOutTextBox.TabIndex = 11;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.InitLabel);
-            this.panel4.Controls.Add(this.InitTextBox);
-            this.panel4.Location = new System.Drawing.Point(265, 4);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(237, 37);
-            this.panel4.TabIndex = 15;
-            this.panel4.MouseEnter += new System.EventHandler(this.panel4_MouseEnter);
-            this.panel4.MouseLeave += new System.EventHandler(this.panel4_MouseLeave);
-            // 
-            // InitLabel
-            // 
-            this.InitLabel.AutoSize = true;
-            this.InitLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.InitLabel.ForeColor = System.Drawing.Color.White;
-            this.InitLabel.Location = new System.Drawing.Point(3, 8);
-            this.InitLabel.Name = "InitLabel";
-            this.InitLabel.Size = new System.Drawing.Size(72, 21);
-            this.InitLabel.TabIndex = 8;
-            this.InitLabel.Text = "Init (Hex)";
-            this.InitLabel.MouseEnter += new System.EventHandler(this.InitLabel_MouseEnter);
-            // 
-            // InitTextBox
-            // 
-            this.InitTextBox.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.InitTextBox.ForeColor = System.Drawing.Color.Black;
-            this.InitTextBox.Location = new System.Drawing.Point(109, 8);
-            this.InitTextBox.Name = "InitTextBox";
-            this.InitTextBox.Size = new System.Drawing.Size(120, 22);
-            this.InitTextBox.TabIndex = 9;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.BitsLabel);
-            this.panel1.Controls.Add(this.BitsNumUD);
-            this.panel1.Location = new System.Drawing.Point(22, 4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(189, 37);
-            this.panel1.TabIndex = 14;
-            this.panel1.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
-            this.panel1.MouseLeave += new System.EventHandler(this.panel1_MouseLeave);
             // 
             // msgScintilla
             // 
@@ -984,46 +873,157 @@
             this.label2.TabIndex = 7;
             this.label2.Text = "Регистры";
             // 
-            // button1
+            // CrcPanel
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(13, 128);
-            this.button1.Name = "button1";
-            this.button1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.button1.Size = new System.Drawing.Size(38, 34);
-            this.button1.TabIndex = 19;
-            this.button1.TabStop = false;
-            this.button1.Text = "↻";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            this.button1.MouseEnter += new System.EventHandler(this.button1_MouseEnter_1);
-            this.button1.MouseLeave += new System.EventHandler(this.button1_MouseLeave);
+            this.CrcPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.CrcPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.CrcPanel.Controls.Add(this.panel12);
+            this.CrcPanel.Controls.Add(this.panel11);
+            this.CrcPanel.Controls.Add(this.panel7);
+            this.CrcPanel.Controls.Add(this.panel4);
+            this.CrcPanel.Controls.Add(this.panel10);
+            this.CrcPanel.Controls.Add(this.panel1);
+            this.CrcPanel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.CrcPanel.ForeColor = System.Drawing.Color.Black;
+            this.CrcPanel.Location = new System.Drawing.Point(-6, 45);
+            this.CrcPanel.Name = "CrcPanel";
+            this.CrcPanel.Size = new System.Drawing.Size(692, 73);
+            this.CrcPanel.TabIndex = 1;
             // 
-            // label8
+            // panel12
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(14, 137);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(120, 17);
-            this.label8.TabIndex = 29;
-            this.label8.Text = "Сброс программы";
-            this.label8.MouseEnter += new System.EventHandler(this.label8_MouseEnter);
+            this.panel12.Controls.Add(this.RefOutCB);
+            this.panel12.Controls.Add(this.RefOutLabel);
+            this.panel12.Location = new System.Drawing.Point(527, 39);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(102, 32);
+            this.panel12.TabIndex = 19;
+            this.panel12.MouseEnter += new System.EventHandler(this.panel12_MouseEnter);
+            this.panel12.MouseLeave += new System.EventHandler(this.panel12_MouseLeave);
+            // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.RefInCB);
+            this.panel11.Controls.Add(this.RefInLabel);
+            this.panel11.Location = new System.Drawing.Point(527, 5);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(102, 36);
+            this.panel11.TabIndex = 18;
+            this.panel11.MouseEnter += new System.EventHandler(this.panel11_MouseEnter);
+            this.panel11.MouseLeave += new System.EventHandler(this.panel11_MouseLeave);
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.XorOutLabel);
+            this.panel7.Controls.Add(this.XorOutTextBox);
+            this.panel7.Location = new System.Drawing.Point(265, 39);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(237, 33);
+            this.panel7.TabIndex = 16;
+            this.panel7.MouseEnter += new System.EventHandler(this.panel7_MouseEnter);
+            this.panel7.MouseLeave += new System.EventHandler(this.panel7_MouseLeave);
+            // 
+            // XorOutLabel
+            // 
+            this.XorOutLabel.AutoSize = true;
+            this.XorOutLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.XorOutLabel.ForeColor = System.Drawing.Color.White;
+            this.XorOutLabel.Location = new System.Drawing.Point(3, 5);
+            this.XorOutLabel.Name = "XorOutLabel";
+            this.XorOutLabel.Size = new System.Drawing.Size(100, 21);
+            this.XorOutLabel.TabIndex = 10;
+            this.XorOutLabel.Text = "XorOut (Hex)";
+            this.XorOutLabel.MouseEnter += new System.EventHandler(this.XorOutLabel_MouseEnter);
+            // 
+            // XorOutTextBox
+            // 
+            this.XorOutTextBox.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.XorOutTextBox.ForeColor = System.Drawing.Color.Black;
+            this.XorOutTextBox.Location = new System.Drawing.Point(109, 5);
+            this.XorOutTextBox.Name = "XorOutTextBox";
+            this.XorOutTextBox.Size = new System.Drawing.Size(120, 22);
+            this.XorOutTextBox.TabIndex = 11;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.InitLabel);
+            this.panel4.Controls.Add(this.InitTextBox);
+            this.panel4.Location = new System.Drawing.Point(265, 4);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(237, 37);
+            this.panel4.TabIndex = 15;
+            this.panel4.MouseEnter += new System.EventHandler(this.panel4_MouseEnter);
+            this.panel4.MouseLeave += new System.EventHandler(this.panel4_MouseLeave);
+            // 
+            // InitLabel
+            // 
+            this.InitLabel.AutoSize = true;
+            this.InitLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.InitLabel.ForeColor = System.Drawing.Color.White;
+            this.InitLabel.Location = new System.Drawing.Point(3, 8);
+            this.InitLabel.Name = "InitLabel";
+            this.InitLabel.Size = new System.Drawing.Size(72, 21);
+            this.InitLabel.TabIndex = 8;
+            this.InitLabel.Text = "Init (Hex)";
+            this.InitLabel.MouseEnter += new System.EventHandler(this.InitLabel_MouseEnter);
+            // 
+            // InitTextBox
+            // 
+            this.InitTextBox.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.InitTextBox.ForeColor = System.Drawing.Color.Black;
+            this.InitTextBox.Location = new System.Drawing.Point(109, 8);
+            this.InitTextBox.Name = "InitTextBox";
+            this.InitTextBox.Size = new System.Drawing.Size(120, 22);
+            this.InitTextBox.TabIndex = 9;
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.PolyLabel);
+            this.panel10.Controls.Add(this.PolyTextBox);
+            this.panel10.Location = new System.Drawing.Point(22, 39);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(220, 32);
+            this.panel10.TabIndex = 17;
+            this.panel10.MouseEnter += new System.EventHandler(this.panel10_MouseEnter);
+            this.panel10.MouseLeave += new System.EventHandler(this.panel10_MouseLeave);
+            // 
+            // PolyLabel
+            // 
+            this.PolyLabel.AutoSize = true;
+            this.PolyLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.PolyLabel.ForeColor = System.Drawing.Color.White;
+            this.PolyLabel.Location = new System.Drawing.Point(3, 5);
+            this.PolyLabel.Name = "PolyLabel";
+            this.PolyLabel.Size = new System.Drawing.Size(80, 21);
+            this.PolyLabel.TabIndex = 6;
+            this.PolyLabel.Text = "Poly (Hex)";
+            this.PolyLabel.MouseEnter += new System.EventHandler(this.PolyLabel_MouseEnter);
+            // 
+            // PolyTextBox
+            // 
+            this.PolyTextBox.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.PolyTextBox.ForeColor = System.Drawing.Color.Black;
+            this.PolyTextBox.Location = new System.Drawing.Point(91, 5);
+            this.PolyTextBox.Name = "PolyTextBox";
+            this.PolyTextBox.Size = new System.Drawing.Size(120, 22);
+            this.PolyTextBox.TabIndex = 7;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.BitsLabel);
+            this.panel1.Controls.Add(this.BitsNumUD);
+            this.panel1.Location = new System.Drawing.Point(22, 4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(189, 37);
+            this.panel1.TabIndex = 14;
+            this.panel1.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
+            this.panel1.MouseLeave += new System.EventHandler(this.panel1_MouseLeave);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(679, 561);
+            this.ClientSize = new System.Drawing.Size(679, 562);
             this.Controls.Add(this.panel2);
             this.MaximumSize = new System.Drawing.Size(695, 600);
             this.MinimumSize = new System.Drawing.Size(695, 600);
@@ -1044,19 +1044,6 @@
             this.panel3.ResumeLayout(false);
             this.CommentPanel.ResumeLayout(false);
             this.CommentPanel.PerformLayout();
-            this.CrcPanel.ResumeLayout(false);
-            this.panel12.ResumeLayout(false);
-            this.panel12.PerformLayout();
-            this.panel11.ResumeLayout(false);
-            this.panel11.PerformLayout();
-            this.panel10.ResumeLayout(false);
-            this.panel10.PerformLayout();
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.RegistersPanel.ResumeLayout(false);
             this.RegistersPanel.PerformLayout();
             this.panel9.ResumeLayout(false);
@@ -1065,6 +1052,19 @@
             this.panel8.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.CrcPanel.ResumeLayout(false);
+            this.panel12.ResumeLayout(false);
+            this.panel12.PerformLayout();
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
