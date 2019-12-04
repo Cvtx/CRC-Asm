@@ -326,8 +326,8 @@
             this.panel2.Controls.Add(this.msgScintilla);
             this.panel2.Controls.Add(this.msgPanel);
             this.panel2.Controls.Add(this.CodePanel);
-            this.panel2.Controls.Add(this.CrcPanel);
             this.panel2.Controls.Add(this.RegistersPanel);
+            this.panel2.Controls.Add(this.CrcPanel);
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(695, 566);
