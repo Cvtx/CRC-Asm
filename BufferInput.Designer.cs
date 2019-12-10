@@ -247,7 +247,7 @@
             this.NextButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
             this.NextButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.NextButton.ForeColor = System.Drawing.Color.White;
-            this.NextButton.Location = new System.Drawing.Point(333, 10);
+            this.NextButton.Location = new System.Drawing.Point(330, 12);
             this.NextButton.Name = "NextButton";
             this.NextButton.Size = new System.Drawing.Size(67, 23);
             this.NextButton.TabIndex = 15;
@@ -258,7 +258,7 @@
             // 
             // BytesNumericUD
             // 
-            this.BytesNumericUD.Location = new System.Drawing.Point(260, 13);
+            this.BytesNumericUD.Location = new System.Drawing.Point(260, 14);
             this.BytesNumericUD.Maximum = new decimal(new int[] {
             10000,
             0,
