@@ -1,13 +1,13 @@
-# Версии для скачивания: 
+# CRC-Asm
 
-https://github.com/Cvtx/CRC-Asm/releases
+**[Версии для скачивания](https://github.com/Cvtx/CRC-Asm/releases)**
 
-### Для работы необходим .NET Framework версии 4.7.2 или выше
+**Для работы необходим .NET Framework версии 4.7.2 или выше**
 [.NET Framework 4.7.2](https://dotnet.microsoft.com/download/dotnet-framework/net472 "Скачать с официального сайта Microsoft")
 
+![Program Screenshot](images/ProgramScreenshot.png)
 
-
-# Контрольная сумма формируется по следующему алгоритму (CRC-16 MODBUS):
+## Алгоритм рассчета, использованный в программе (CRC-16/MODBUS):
 1) загрузка CRC регистра (16 бит) единицами (FFFFh);
 2) исключающее ИЛИ с первыми 8 битами байта сообщения и содержимым CRC регистра;
 3) сдвиг результата на один бит вправо;
