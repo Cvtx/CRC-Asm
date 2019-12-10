@@ -31,8 +31,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.MsgPanel = new System.Windows.Forms.Panel();
-            this.EndInputButton = new System.Windows.Forms.Button();
             this.InputPanel = new System.Windows.Forms.Panel();
+            this.EndInputButton = new System.Windows.Forms.Button();
+            this.ClearOneByteButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.HexInput = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
@@ -86,19 +87,9 @@
             this.MsgPanel.TabIndex = 20;
             this.MsgPanel.Visible = false;
             // 
-            // EndInputButton
-            // 
-            this.EndInputButton.Location = new System.Drawing.Point(378, 104);
-            this.EndInputButton.Name = "EndInputButton";
-            this.EndInputButton.Size = new System.Drawing.Size(75, 23);
-            this.EndInputButton.TabIndex = 25;
-            this.EndInputButton.Text = "Далее";
-            this.EndInputButton.UseVisualStyleBackColor = true;
-            this.EndInputButton.Visible = false;
-            this.EndInputButton.Click += new System.EventHandler(this.EndInputButton_Click);
-            // 
             // InputPanel
             // 
+            this.InputPanel.Controls.Add(this.ClearOneByteButton);
             this.InputPanel.Controls.Add(this.label3);
             this.InputPanel.Controls.Add(this.HexInput);
             this.InputPanel.Controls.Add(this.label2);
@@ -108,6 +99,43 @@
             this.InputPanel.Name = "InputPanel";
             this.InputPanel.Size = new System.Drawing.Size(180, 140);
             this.InputPanel.TabIndex = 25;
+            // 
+            // EndInputButton
+            // 
+            this.EndInputButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.EndInputButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.EndInputButton.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.EndInputButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.EndInputButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
+            this.EndInputButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EndInputButton.ForeColor = System.Drawing.Color.White;
+            this.EndInputButton.Location = new System.Drawing.Point(384, 104);
+            this.EndInputButton.Name = "EndInputButton";
+            this.EndInputButton.Size = new System.Drawing.Size(67, 23);
+            this.EndInputButton.TabIndex = 25;
+            this.EndInputButton.TabStop = false;
+            this.EndInputButton.Text = "Далее";
+            this.EndInputButton.UseVisualStyleBackColor = true;
+            this.EndInputButton.Visible = false;
+            this.EndInputButton.Click += new System.EventHandler(this.EndInputButton_Click);
+            // 
+            // ClearOneByteButton
+            // 
+            this.ClearOneByteButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ClearOneByteButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.ClearOneByteButton.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.ClearOneByteButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.ClearOneByteButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
+            this.ClearOneByteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ClearOneByteButton.ForeColor = System.Drawing.Color.White;
+            this.ClearOneByteButton.Location = new System.Drawing.Point(139, 101);
+            this.ClearOneByteButton.Name = "ClearOneByteButton";
+            this.ClearOneByteButton.Size = new System.Drawing.Size(25, 23);
+            this.ClearOneByteButton.TabIndex = 25;
+            this.ClearOneByteButton.TabStop = false;
+            this.ClearOneByteButton.Text = "<";
+            this.ClearOneByteButton.UseVisualStyleBackColor = true;
+            this.ClearOneByteButton.Click += new System.EventHandler(this.ClearOneByteButton_Click);
             // 
             // label3
             // 
@@ -132,6 +160,10 @@
             this.HexInput.Name = "HexInput";
             this.HexInput.Size = new System.Drawing.Size(135, 20);
             this.HexInput.TabIndex = 24;
+            this.HexInput.Enter += new System.EventHandler(this.HexInput_Enter);
+            this.HexInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.HexInput_KeyDown);
+            this.HexInput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.HexInput_KeyPress);
+            this.HexInput.KeyUp += new System.Windows.Forms.KeyEventHandler(this.HexInput_KeyUp);
             // 
             // label2
             // 
@@ -157,10 +189,18 @@
             // 
             // InputByteButton
             // 
+            this.InputByteButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.InputByteButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.InputByteButton.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.InputByteButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.InputByteButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
+            this.InputByteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.InputByteButton.ForeColor = System.Drawing.Color.White;
             this.InputByteButton.Location = new System.Drawing.Point(64, 101);
             this.InputByteButton.Name = "InputByteButton";
             this.InputByteButton.Size = new System.Drawing.Size(67, 23);
             this.InputByteButton.TabIndex = 22;
+            this.InputByteButton.TabStop = false;
             this.InputByteButton.Text = "Ввод";
             this.InputByteButton.UseVisualStyleBackColor = true;
             this.InputByteButton.Click += new System.EventHandler(this.InputByteButton_Click_1);
@@ -200,10 +240,18 @@
             // 
             // NextButton
             // 
+            this.NextButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.NextButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.NextButton.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.NextButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.NextButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
+            this.NextButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.NextButton.ForeColor = System.Drawing.Color.White;
             this.NextButton.Location = new System.Drawing.Point(333, 10);
             this.NextButton.Name = "NextButton";
             this.NextButton.Size = new System.Drawing.Size(67, 23);
             this.NextButton.TabIndex = 15;
+            this.NextButton.TabStop = false;
             this.NextButton.Text = "Далее";
             this.NextButton.UseVisualStyleBackColor = true;
             this.NextButton.Click += new System.EventHandler(this.NextButton_Click);
@@ -285,5 +333,6 @@
         private System.Windows.Forms.NumericUpDown HexInput;
         private System.Windows.Forms.Panel InputPanel;
         private System.Windows.Forms.Button EndInputButton;
+        private System.Windows.Forms.Button ClearOneByteButton;
     }
 }

@@ -154,7 +154,7 @@
             this.HelpCheckBox.ForeColor = System.Drawing.Color.White;
             this.HelpCheckBox.Location = new System.Drawing.Point(539, 16);
             this.HelpCheckBox.Name = "HelpCheckBox";
-            this.HelpCheckBox.Size = new System.Drawing.Size(129, 17);
+            this.HelpCheckBox.Size = new System.Drawing.Size(128, 17);
             this.HelpCheckBox.TabIndex = 16;
             this.HelpCheckBox.TabStop = false;
             this.HelpCheckBox.Text = "Включить справку?";
@@ -994,7 +994,7 @@
             this.PolyLabel.ForeColor = System.Drawing.Color.White;
             this.PolyLabel.Location = new System.Drawing.Point(3, 5);
             this.PolyLabel.Name = "PolyLabel";
-            this.PolyLabel.Size = new System.Drawing.Size(80, 21);
+            this.PolyLabel.Size = new System.Drawing.Size(79, 21);
             this.PolyLabel.TabIndex = 6;
             this.PolyLabel.Text = "Poly (Hex)";
             this.PolyLabel.MouseEnter += new System.EventHandler(this.PolyLabel_MouseEnter);
@@ -1023,7 +1023,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(679, 562);
+            this.ClientSize = new System.Drawing.Size(679, 561);
             this.Controls.Add(this.panel2);
             this.MaximumSize = new System.Drawing.Size(695, 600);
             this.MinimumSize = new System.Drawing.Size(695, 600);

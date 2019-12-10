@@ -35,6 +35,8 @@ namespace CRC
                 BytesNumLabel.Visible = true;
                 MsgPanel.Visible = true;
                 NextButton.Visible = false;
+                HexInput.Controls[1].Text = "";
+                HexInput.Focus();
 
         }
         public static Color IntToColor(int rgb)
@@ -61,6 +63,55 @@ namespace CRC
            this.Close();
         }
 
+        private void HexInput_Enter(object sender, EventArgs e)
+        {
+            HexInput.Controls[1].Text = "";
+        }
+
+        private void HexInput_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                InputByteButton_Click_1(sender, e);
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void HexInput_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;
+                
+            }
+        }
+
+        private void HexInput_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void ClearOneByteButton_Click(object sender, EventArgs e)
+        {
+            if ((RemainingNum > 0) && (RemainingNum != BytesNum))
+            {
+                Array.Copy(buf, 0, buf, 0, buf.Length - 1);
+                MsgScintilla.ReadOnly = false;
+                MsgScintilla.Undo();
+                MsgScintilla.ReadOnly = true;
+                RemainingNum += 1;
+                BytesLeftLabel.Text = RemainingNum.ToString();
+                HexInput.Controls[1].Text = "";
+                HexInput.Focus();
+            }
+            
+        }
+
         private void BufferInputForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (DealogIsOk)
@@ -77,6 +128,7 @@ namespace CRC
                 buf[BytesNum - RemainingNum] = (byte)HexInput.Value;
                 RemainingNum--;
                 MsgScintilla.ReadOnly = false;
+                MsgScintilla.BeginUndoAction();
                 if (count % 8 == 0) 
                 {
                     MsgScintilla.AppendText(((int)HexInput.Value).ToString("X") + "\r\n");
@@ -87,7 +139,8 @@ namespace CRC
                     count++;
                     MsgScintilla.AppendText(((int)HexInput.Value).ToString("X") + " ");
                 }
-                
+                MsgScintilla.EndUndoAction();
+
                 MsgScintilla.ReadOnly = true;
                 BytesLeftLabel.Text = RemainingNum.ToString();
                 HexInput.Value = 0;
@@ -96,6 +149,8 @@ namespace CRC
                     InputPanel.Visible = false;
                     EndInputButton.Visible = true;
                 }
+                HexInput.Focus();
+                HexInput.Controls[1].Text = "";
             }
             else
             {
