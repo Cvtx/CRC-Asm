@@ -31,8 +31,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.MsgPanel = new System.Windows.Forms.Panel();
-            this.InputPanel = new System.Windows.Forms.Panel();
             this.EndInputButton = new System.Windows.Forms.Button();
+            this.InputPanel = new System.Windows.Forms.Panel();
             this.ClearOneByteButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.HexInput = new System.Windows.Forms.NumericUpDown();
@@ -87,19 +87,6 @@
             this.MsgPanel.TabIndex = 20;
             this.MsgPanel.Visible = false;
             // 
-            // InputPanel
-            // 
-            this.InputPanel.Controls.Add(this.ClearOneByteButton);
-            this.InputPanel.Controls.Add(this.label3);
-            this.InputPanel.Controls.Add(this.HexInput);
-            this.InputPanel.Controls.Add(this.label2);
-            this.InputPanel.Controls.Add(this.BytesLeftLabel);
-            this.InputPanel.Controls.Add(this.InputByteButton);
-            this.InputPanel.Location = new System.Drawing.Point(320, 3);
-            this.InputPanel.Name = "InputPanel";
-            this.InputPanel.Size = new System.Drawing.Size(180, 140);
-            this.InputPanel.TabIndex = 25;
-            // 
             // EndInputButton
             // 
             this.EndInputButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
@@ -118,6 +105,19 @@
             this.EndInputButton.UseVisualStyleBackColor = true;
             this.EndInputButton.Visible = false;
             this.EndInputButton.Click += new System.EventHandler(this.EndInputButton_Click);
+            // 
+            // InputPanel
+            // 
+            this.InputPanel.Controls.Add(this.ClearOneByteButton);
+            this.InputPanel.Controls.Add(this.label3);
+            this.InputPanel.Controls.Add(this.HexInput);
+            this.InputPanel.Controls.Add(this.label2);
+            this.InputPanel.Controls.Add(this.BytesLeftLabel);
+            this.InputPanel.Controls.Add(this.InputByteButton);
+            this.InputPanel.Location = new System.Drawing.Point(320, 0);
+            this.InputPanel.Name = "InputPanel";
+            this.InputPanel.Size = new System.Drawing.Size(180, 143);
+            this.InputPanel.TabIndex = 25;
             // 
             // ClearOneByteButton
             // 
